@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi mamá ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Georgia, serif;
+}
+
+body{
+    background: #000;
+    overflow-x: hidden;
+    color: white;
+}
+
+.hearts{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    color: gold;
+    animation: float 8s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes float{
+    from{
+        transform: translateY(100vh);
+    }
+    to{
+        transform: translateY(-10vh);
+    }
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    flex-direction:column;
+}
+
+.envelope{
+    width:250px;
+    height:160px;
+    background: gold;
+    position:relative;
+    cursor:pointer;
+    border-radius:8px;
+    box-shadow: 0 0 30px rgba(255,215,0,0.3);
+}
+
+.envelope::before{
+    content:"💌";
+    font-size:60px;
+    position:absolute;
+    top:40px;
+    left:90px;
+}
+
+.letter{
+    display:none;
+    max-width:800px;
+    margin:30px;
+    padding:30px;
+    background: rgba(255,255,255,0.05);
+    border:1px solid gold;
+    border-radius:15px;
+    text-align:center;
+    animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+.gallery img{
+    width:200px;
+    margin:10px;
+    border-radius:15px;
+    border:2px solid gold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+
+    <div class="envelope" onclick="openLetter()"></div>
+
+    <div class="letter" id="letter">
+
+        <h1 style="color:gold;">Para ti, mamá ❤️</h1>
+        <br>
+
+        <p>
+        Hoy quiero desearte un feliz Día de las Madres y recordarte lo importante que eres para mí. 
+        Gracias por ser una gran mamá, por cuidarme desde siempre y por querer siempre lo mejor para mi vida.
+        <br><br>
+        Espero que hoy sea un día lleno de momentos bonitos, de sonrisas sinceras y de todo el cariño que mereces. 
+        Quiero que la vida te siga regalando cosas lindas y muchos motivos para sentirte feliz.
+        <br><br>
+        <strong>Te quiero mucho, ma.</strong>
+        <br><br>
+        <strong>Feliz Día de las Madres ❤️</strong>
+        <br><br>
+        <em>Con amor, tu hijo ❤️</em>
+        </p>
+
+        <br>
+
+        <div class="gallery">
+            <img src="foto1.jpg">
+            <img src="foto2.jpg">
+            <img src="foto3.jpg">
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function openLetter(){
+    document.getElementById("letter").style.display="block";
+}
+
+for(let i=0; i<25; i++){
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20+10)+"px";
+    heart.style.animationDuration = (Math.random()*5+5)+"s";
+    document.getElementById("hearts").appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
